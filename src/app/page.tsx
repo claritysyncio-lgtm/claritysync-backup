@@ -59,9 +59,9 @@ export default function Home() {
     <div className="font-sans text-slate-800">
       <main className="flex flex-col">
         {/* Hero Section */}
-        <section className="relative isolate flex items-center justify-center min-h-[80vh] py-24 sm:py-28 overflow-hidden bg-gradient-to-b from-sky-50 via-white to-white">
+        <section className="relative isolate flex items-center justify-center min-h-[80vh] py-24 sm:py-28 overflow-hidden bg-gradient-to-b from-[#e9fbff] via-white to-white">
           <div className="absolute -z-10 inset-0 pointer-events-none [mask-image:radial-gradient(60%_60%_at_50%_30%,_black,_transparent)]">
-            <div className="absolute inset-x-0 top-0 h-64 bg-gradient-to-b from-sky-100/60 to-transparent" />
+            <div className="absolute inset-x-0 top-0 h-64 bg-gradient-to-b from-[rgba(29,203,242,0.2)] to-transparent" />
           </div>
 
           <div className="px-6 sm:px-8 lg:px-10 w-full">
