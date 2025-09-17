@@ -1,5 +1,5 @@
 import type { FC, SVGProps } from "react";
-
+ 
 // --- Icon Components ---
 const FocusIcon: FC<SVGProps<SVGSVGElement>> = (props) => (
   <svg
@@ -7,7 +7,7 @@ const FocusIcon: FC<SVGProps<SVGSVGElement>> = (props) => (
     fill="none"
     viewBox="0 0 24 24"
     strokeWidth={1.5}
-    stroke="currentColor"
+    stroke="currentColor"093462
     {...props}
   >
     <path
@@ -242,6 +242,12 @@ export default function Home() {
             </a>
             <a href="#features" className="hover:text-slate-900 hover:underline underline-offset-4">
               Features
+            </a>
+            <a href="/privacy" className="hover:text-slate-900 hover:underline underline-offset-4">
+              Privacy
+            </a>
+            <a href="/terms" className="hover:text-slate-900 hover:underline underline-offset-4">
+              Terms
             </a>
             <a href="#" className="hover:text-slate-900 hover:underline underline-offset-4">
               Contact
