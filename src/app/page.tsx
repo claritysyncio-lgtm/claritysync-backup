@@ -150,9 +150,9 @@ export default function Home() {
               </div>
               <div className="flex flex-col items-center text-center p-8 bg-white rounded-2xl border border-slate-200">
                 <AlignIcon className="h-12 w-12 text-[#1dcbf2] mb-4" />
-                <h3 className="text-xl font-semibold mb-2 text-slate-900">Stay Aligned</h3>
+                <h3 className="text-xl font-semibold mb-2 text-slate-900">Turn Chaos into Clarity</h3>
                 <p className="text-slate-600">
-                  Keep your team on the same page with shared resources and clear, concise updates.
+                  Stay organized with notes, reminders, and updates all in one place. Use it for your own studies or with friends—so nothing slips through the cracks.
                 </p>
               </div>
               <div className="flex flex-col items-center text-center p-8 bg-white rounded-2xl border border-slate-200">
