@@ -37,22 +37,26 @@ export default function SiteHeader() {
           </Link>
 
           {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center gap-1">
-            {NAV.map((item) => {
+          <nav className="hidden md:flex items-center">
+            {NAV.map((item, idx) => {
               const isActive =
                 item.href === "/" ? pathname === "/" : pathname.startsWith(item.href.replace("/#", "/"));
               return (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className={`rounded-full px-3 py-2 text-sm font-medium transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgba(29,203,242,0.7)] ${
-                    isActive
-                      ? "bg-slate-100 text-slate-900"
-                      : "text-slate-700 hover:bg-slate-50"
-                  }`
-                >
-                  {item.label}
-                </Link>
+                <span key={item.href} className="inline-flex items-center">
+                  <Link
+                    href={item.href}
+                    className={`rounded-full px-3 py-2 text-sm font-medium transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgba(29,203,242,0.7)] ${
+                      isActive
+                        ? "bg-slate-100 text-slate-900"
+                        : "text-slate-700 hover:bg-slate-50"
+                    }`}
+                  >
+                    {item.label}
+                  </Link>
+                  {idx < NAV.length - 1 && (
+                    <span aria-hidden className="mx-2 text-slate-300 select-none">•</span>
+                  )}
+                </span>
               );
             })}
           </nav>

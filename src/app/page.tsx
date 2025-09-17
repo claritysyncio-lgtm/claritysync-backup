@@ -1,5 +1,4 @@
 import type { FC, SVGProps } from "react";
-import Image from "next/image";
 
 // --- Icon Components ---
 const FocusIcon: FC<SVGProps<SVGSVGElement>> = (props) => (
@@ -59,22 +58,39 @@ export default function Home() {
     <div className="font-sans text-slate-800">
       <main className="flex flex-col">
         {/* Hero Section */}
-        <section className="relative isolate flex items-center justify-center min-h-[80vh] py-24 sm:py-28 overflow-hidden bg-gradient-to-b from-[#e9fbff] via-white to-white">
+        <section className="relative isolate flex items-center justify-center min-h-[calc(100svh-4rem)] py-24 sm:py-28 overflow-hidden bg-gradient-to-b from-[#e9fbff] via-white to-white">
           <div className="absolute -z-10 inset-0 pointer-events-none [mask-image:radial-gradient(60%_60%_at_50%_30%,_black,_transparent)]">
             <div className="absolute inset-x-0 top-0 h-64 bg-gradient-to-b from-[rgba(29,203,242,0.2)] to-transparent" />
           </div>
 
           <div className="px-6 sm:px-8 lg:px-10 w-full">
             <div className="max-w-3xl mx-auto text-center">
-              <div className="flex justify-center mb-6">
-                <Image
-                  src="/Clarity%20Sync%20Logo%20transparent%20bg.png"
-                  alt="Clarity Sync Logo"
-                  width={1000}
-                  height={400}
-                  priority
-                  className="w-full max-w-3xl h-auto"
-                />
+              <div className="mb-6 text-center">
+                <div className="flex justify-center mb-4">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.25"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="h-28 w-28 text-[#1dcbf2]"
+                    aria-hidden
+                  >
+                    {/* Hexagon outline */}
+                    <path d="M7 3.75l-4 6.5v3.5l4 6.5h10l4-6.5v-3.5l-4-6.5H7z" />
+                    {/* Eye inside */}
+                    <ellipse cx="12" cy="12" rx="5" ry="3.2" />
+                    <circle cx="12" cy="12" r="1.4" fill="currentColor" stroke="none" />
+                  </svg>
+                </div>
+                <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight text-slate-900">
+                  ClaritySync
+                </h1>
+                <p className="mt-3 text-xl md:text-2xl font-semibold text-slate-700">
+                  Unlock clarity. Live in sync.
+                </p>
               </div>
 
 
@@ -85,7 +101,7 @@ export default function Home() {
               <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
                 <a
                   href="/templates"
-                  className="px-6 sm:px-8 py-3 rounded-full bg-[#1dcbf2] text-white font-semibold shadow-sm shadow-[rgba(29,203,242,0.2)] hover:bg-[#18b5d7] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgba(29,203,242,0.6)]"
+                  className="px-6 sm:px-8 py-3 rounded-full bg-[#1dcbf2] text-white font-semibold shadow-sm shadow-[rgba(29,203,242,0.2)] hover:bg-[hsl(191,89%,46%)] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgba(29,203,242,0.6)]"
                 >
                   Explore Templates
                 </a>
@@ -97,6 +113,20 @@ export default function Home() {
                 </a>
               </div>
             </div>
+          </div>
+          {/* Scroll hint arrow */}
+          <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-slate-400/50">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.25"
+              className="h-6 w-6 animate-bounce"
+              aria-hidden
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" d="M6 9l6 6 6-6" />
+            </svg>
           </div>
         </section>
 
@@ -112,21 +142,21 @@ export default function Home() {
 
             <div className="mt-16 grid gap-6 sm:gap-8 md:grid-cols-3">
               <div className="flex flex-col items-center text-center p-8 bg-white rounded-2xl border border-slate-200">
-                <FocusIcon className="h-12 w-12 text-blue-600 mb-4" />
+                <FocusIcon className="h-12 w-12 text-[#1dcbf2] mb-4" />
                 <h3 className="text-xl font-semibold mb-2 text-slate-900">Stay Focused</h3>
                 <p className="text-slate-600">
                   Minimize distractions with streamlined templates and a centralized notification system.
                 </p>
               </div>
               <div className="flex flex-col items-center text-center p-8 bg-white rounded-2xl border border-slate-200">
-                <AlignIcon className="h-12 w-12 text-blue-600 mb-4" />
+                <AlignIcon className="h-12 w-12 text-[#1dcbf2] mb-4" />
                 <h3 className="text-xl font-semibold mb-2 text-slate-900">Stay Aligned</h3>
                 <p className="text-slate-600">
                   Keep your team on the same page with shared resources and clear, concise updates.
                 </p>
               </div>
               <div className="flex flex-col items-center text-center p-8 bg-white rounded-2xl border border-slate-200">
-                <LightbulbIcon className="h-12 w-12 text-blue-600 mb-4" />
+                <LightbulbIcon className="h-12 w-12 text-[#1dcbf2] mb-4" />
                 <h3 className="text-xl font-semibold mb-2 text-slate-900">Work Smarter</h3>
                 <p className="text-slate-600">
                   Leverage powerful tools designed for efficiency, not complexity. Get more done with less effort.
@@ -192,7 +222,7 @@ export default function Home() {
             </h2>
             <a
               href="/templates"
-              className="mt-8 inline-flex items-center justify-center px-6 py-3 rounded-full text-blue-700 bg-white font-bold hover:bg-blue-50 transition-colors shadow-sm"
+              className="mt-8 inline-flex items-center justify-center px-6 py-3 rounded-full text-[rgba(29,203,242,1)] bg-white font-bold hover:bg-[color-mix(in_oklab,rgba(29,203,242,0.08),white)] transition-colors shadow-sm"
             >
               Get Started
             </a>
@@ -204,7 +234,7 @@ export default function Home() {
       <footer className="bg-white border-t border-slate-200 text-slate-500">
         <div className="max-w-6xl mx-auto py-8 px-6 sm:px-8 lg:px-10 flex flex-col md:flex-row justify-between items-center">
           <p className="mb-4 md:mb-0">
-            &copy; {new Date().getFullYear()} ClaritySync Project. All rights reserved.
+            &copy; {new Date().getFullYear()} ClaritySync. All rights reserved.
           </p>
           <div className="flex gap-x-6">
             <a href="#about" className="hover:text-slate-900 hover:underline underline-offset-4">

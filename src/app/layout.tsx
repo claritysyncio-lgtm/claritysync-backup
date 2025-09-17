@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Saira } from "next/font/google";
 import "./globals.css";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const saira = Saira({
   variable: "--font-saira",
@@ -8,7 +10,7 @@ const saira = Saira({
 });
 
 export const metadata: Metadata = {
-  title: "ClaritySync Project",
+  title: "ClaritySync",
   description: "Tools and templates to bring focus, alignment, and productivity.",
 };
 
@@ -24,6 +26,9 @@ export default function RootLayout({
       <body className={`${saira.variable} antialiased`}>
         <SiteHeader />
         {children}
+        {/* Vercel analytics & speed insights */}
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
