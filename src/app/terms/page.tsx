@@ -49,7 +49,7 @@ export default function Terms() {
       <section className="mb-8">
         <h2 className="text-2xl font-semibold mb-4">Contact Us</h2>
         <p className="mb-4">
-          If you have any questions about these Terms, please contact us at legal@claritysync.io.
+          If you have any questions about these Terms, please contact us at <a href="mailto:Claritysync.io@gmail.com" className="text-[#1dcbf2] hover:underline">Claritysync.io@gmail.com</a>.
         </p>
       </section>
     </div>
