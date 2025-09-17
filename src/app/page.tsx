@@ -7,7 +7,7 @@ const FocusIcon: FC<SVGProps<SVGSVGElement>> = (props) => (
     fill="none"
     viewBox="0 0 24 24"
     strokeWidth={1.5}
-    stroke="currentColor"093462
+    stroke="currentColor"
     {...props}
   >
     <path
@@ -249,7 +249,7 @@ export default function Home() {
             <a href="/terms" className="hover:text-slate-900 hover:underline underline-offset-4">
               Terms
             </a>
-            <a href="#" className="hover:text-slate-900 hover:underline underline-offset-4">
+            <a href="mailto:Claritysync.io@gmail.com" className="hover:text-slate-900 hover:underline underline-offset-4">
               Contact
             </a>
           </div>
