@@ -1,4 +1,5 @@
 import type { FC, SVGProps } from "react";
+import Image from "next/image";
 
 // --- Icon Components ---
 const FocusIcon: FC<SVGProps<SVGSVGElement>> = (props) => (
@@ -65,16 +66,17 @@ export default function Home() {
 
           <div className="px-6 sm:px-8 lg:px-10 w-full">
             <div className="max-w-3xl mx-auto text-center">
-              <div className="flex justify-center mb-4">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" className="h-16 w-16 text-blue-600"><path d="M7 3.75l-4 6.5v3.5l4 6.5h10l4-6.5v-3.5l-4-6.5H7z" /></svg>
-              </div>
-              <div className="inline-flex items-center gap-2 rounded-full bg-white/70 ring-1 ring-slate-200 px-3 py-1 text-sm text-slate-600 mb-6 backdrop-blur">
-                From Chaos to Clarity
+              <div className="flex justify-center mb-6">
+                <Image
+                  src="/Clarity%20Sync%20Logo%20transparent%20bg.png"
+                  alt="Clarity Sync Logo"
+                  width={1000}
+                  height={400}
+                  priority
+                  className="w-full max-w-3xl h-auto"
+                />
               </div>
 
-              <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight text-slate-900">
-                ClaritySync Project
-              </h1>
               <p className="mt-3 text-xl md:text-2xl font-medium text-slate-700">
                 Unlock Clarity. Live in Sync.
               </p>
