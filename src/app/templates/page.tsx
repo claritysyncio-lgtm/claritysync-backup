@@ -160,7 +160,7 @@ export default function TemplatesPage() {
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 placeholder="Search templates..."
-                className="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 pr-10 text-slate-800 placeholder:text-slate-400 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 pr-10 text-slate-800 placeholder:text-slate-400 shadow-sm focus:outline-none focus:ring-2 focus:ring-[rgba(29,203,242,0.6)]"
               />
               <div className="pointer-events-none absolute inset-y-0 right-3 flex items-center text-slate-400">
                 <svg
@@ -182,7 +182,7 @@ export default function TemplatesPage() {
             <button
               className={`rounded-full px-4 py-2 text-sm font-medium ring-1 transition-colors ${
                 active === "popular"
-                  ? "bg-blue-600 text-white ring-blue-600"
+                  ? "bg-[#1dcbf2] text-white ring-[#1dcbf2]"
                   : "bg-white text-slate-700 ring-slate-200 hover:bg-slate-50"
               }`}
               onClick={() => setActive("popular")}
@@ -192,7 +192,7 @@ export default function TemplatesPage() {
             <button
               className={`rounded-full px-4 py-2 text-sm font-medium ring-1 transition-colors ${
                 active === "all"
-                  ? "bg-blue-600 text-white ring-blue-600"
+                  ? "bg-[#1dcbf2] text-white ring-[#1dcbf2]"
                   : "bg-white text-slate-700 ring-slate-200 hover:bg-slate-50"
               }`}
               onClick={() => setActive("all")}
@@ -204,7 +204,7 @@ export default function TemplatesPage() {
                 key={c.key}
                 className={`rounded-full px-4 py-2 text-sm font-medium ring-1 transition-colors ${
                   active === c.key
-                    ? "bg-blue-600 text-white ring-blue-600"
+                    ? "bg-[#1dcbf2] text-white ring-[#1dcbf2]"
                     : "bg-white text-slate-700 ring-slate-200 hover:bg-slate-50"
                 }`}
                 onClick={() => setActive(c.key)}
@@ -225,7 +225,7 @@ export default function TemplatesPage() {
               className="group rounded-2xl border border-slate-200 bg-white p-6 shadow-sm hover:shadow-md transition-shadow"
             >
               <div className="flex items-start justify-between gap-4">
-                <h3 className="text-lg font-semibold text-slate-900 group-hover:text-blue-700">
+                <h3 className="text-lg font-semibold text-slate-900 group-hover:text-[#18b5d7]">
                   {t.title}
                 </h3>
                 <span className="shrink-0 rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-slate-600">
@@ -234,10 +234,10 @@ export default function TemplatesPage() {
               </div>
               <p className="mt-2 text-sm text-slate-600">{t.description}</p>
               <div className="mt-4 flex items-center justify-between">
-                <button className="text-sm font-semibold text-blue-600 hover:text-blue-700">
+                <button className="text-sm font-semibold text-[#1dcbf2] hover:text-[#18b5d7]">
                   Preview
                 </button>
-                <button className="rounded-full bg-blue-600 px-4 py-2 text-sm font-semibold text-white hover:bg-blue-700">
+                <button className="rounded-full bg-[#1dcbf2] px-4 py-2 text-sm font-semibold text-white hover:bg-[#18b5d7]">
                   Use Template
                 </button>
               </div>

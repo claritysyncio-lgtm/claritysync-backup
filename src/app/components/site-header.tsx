@@ -28,7 +28,7 @@ export default function SiteHeader() {
               fill="none"
               stroke="currentColor"
               strokeWidth="1.75"
-              className="h-7 w-7 text-blue-600"
+              className="h-7 w-7 text-[#1dcbf2]"
               aria-hidden
             >
               <path d="M7 3.75l-4 6.5v3.5l4 6.5h10l4-6.5v-3.5l-4-6.5H7z" />
@@ -45,11 +45,11 @@ export default function SiteHeader() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className={`rounded-full px-3 py-2 text-sm font-medium transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/70 ${
+                  className={`rounded-full px-3 py-2 text-sm font-medium transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgba(29,203,242,0.7)] ${
                     isActive
                       ? "bg-slate-100 text-slate-900"
                       : "text-slate-700 hover:bg-slate-50"
-                  }`}
+                  }`
                 >
                   {item.label}
                 </Link>
@@ -59,7 +59,7 @@ export default function SiteHeader() {
 
           {/* Mobile toggle */}
           <button
-            className="md:hidden inline-flex items-center justify-center rounded-full p-2 text-slate-700 hover:bg-slate-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/70"
+            className="md:hidden inline-flex items-center justify-center rounded-full p-2 text-slate-700 hover:bg-slate-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgba(29,203,242,0.7)]"
             aria-label="Toggle menu"
             onClick={() => setOpen((v) => !v)}
           >

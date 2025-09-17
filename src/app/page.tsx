@@ -77,9 +77,7 @@ export default function Home() {
                 />
               </div>
 
-              <p className="mt-3 text-xl md:text-2xl font-medium text-slate-700">
-                Unlock Clarity. Live in Sync.
-              </p>
+
               <p className="mt-4 text-lg md:text-xl leading-relaxed text-slate-600">
                 Tools and templates to bring focus, alignment, and productivity.
               </p>
@@ -87,7 +85,7 @@ export default function Home() {
               <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
                 <a
                   href="/templates"
-                  className="px-6 sm:px-8 py-3 rounded-full bg-blue-600 text-white font-semibold shadow-sm shadow-blue-600/10 hover:bg-blue-700 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+                  className="px-6 sm:px-8 py-3 rounded-full bg-[#1dcbf2] text-white font-semibold shadow-sm shadow-[rgba(29,203,242,0.2)] hover:bg-[#18b5d7] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgba(29,203,242,0.6)]"
                 >
                   Explore Templates
                 </a>
@@ -187,13 +185,13 @@ export default function Home() {
         </section>
 
         {/* CTA Section */}
-        <section id="cta" className="bg-gradient-to-r from-blue-600 to-indigo-600">
+        <section id="cta" className="bg-[linear-gradient(to_right,_#1dcbf2,_#1dcbf2)]">
           <div className="max-w-4xl mx-auto text-center py-16 sm:py-20 px-6 sm:px-8 lg:px-10">
             <h2 className="text-3xl font-extrabold text-white sm:text-4xl">
               <span className="block">Start building clarity into your workflow today.</span>
             </h2>
             <a
-              href="#"
+              href="/templates"
               className="mt-8 inline-flex items-center justify-center px-6 py-3 rounded-full text-blue-700 bg-white font-bold hover:bg-blue-50 transition-colors shadow-sm"
             >
               Get Started
