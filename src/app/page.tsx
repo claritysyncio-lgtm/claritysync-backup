@@ -1,102 +1,223 @@
-import Image from "next/image";
+import type { FC, SVGProps } from "react";
 
+// --- Icon Components ---
+const FocusIcon: FC<SVGProps<SVGSVGElement>> = (props) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    fill="none"
+    viewBox="0 0 24 24"
+    strokeWidth={1.5}
+    stroke="currentColor"
+    {...props}
+  >
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+    />
+  </svg>
+);
+
+const AlignIcon: FC<SVGProps<SVGSVGElement>> = (props) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    fill="none"
+    viewBox="0 0 24 24"
+    strokeWidth={1.5}
+    stroke="currentColor"
+    {...props}
+  >
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+    />
+  </svg>
+);
+
+const LightbulbIcon: FC<SVGProps<SVGSVGElement>> = (props) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    fill="none"
+    viewBox="0 0 24 24"
+    strokeWidth={1.5}
+    stroke="currentColor"
+    {...props}
+  >
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      d="M9.75 17.25a6.75 6.75 0 113.5 0v1.25a1.5 1.5 0 01-1.5 1.5h-0.5a1.5 1.5 0 01-1.5-1.5v-1.25z"
+    />
+  </svg>
+);
+
+// --- Main Page Component ---
 export default function Home() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <div className="font-sans text-slate-800">
+      <main className="flex flex-col">
+        {/* Hero Section */}
+        <section className="relative isolate flex items-center justify-center min-h-[80vh] py-24 sm:py-28 overflow-hidden bg-gradient-to-b from-sky-50 via-white to-white">
+          <div className="absolute -z-10 inset-0 pointer-events-none [mask-image:radial-gradient(60%_60%_at_50%_30%,_black,_transparent)]">
+            <div className="absolute inset-x-0 top-0 h-64 bg-gradient-to-b from-sky-100/60 to-transparent" />
+          </div>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
+          <div className="px-6 sm:px-8 lg:px-10 w-full">
+            <div className="max-w-3xl mx-auto text-center">
+              <div className="flex justify-center mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" className="h-16 w-16 text-blue-600"><path d="M7 3.75l-4 6.5v3.5l4 6.5h10l4-6.5v-3.5l-4-6.5H7z" /></svg>
+              </div>
+              <div className="inline-flex items-center gap-2 rounded-full bg-white/70 ring-1 ring-slate-200 px-3 py-1 text-sm text-slate-600 mb-6 backdrop-blur">
+                From Chaos to Clarity
+              </div>
+
+              <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight text-slate-900">
+                ClaritySync Project
+              </h1>
+              <p className="mt-3 text-xl md:text-2xl font-medium text-slate-700">
+                Unlock Clarity. Live in Sync.
+              </p>
+              <p className="mt-4 text-lg md:text-xl leading-relaxed text-slate-600">
+                Tools and templates to bring focus, alignment, and productivity.
+              </p>
+
+              <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a
+                  href="/templates"
+                  className="px-6 sm:px-8 py-3 rounded-full bg-blue-600 text-white font-semibold shadow-sm shadow-blue-600/10 hover:bg-blue-700 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+                >
+                  Explore Templates
+                </a>
+                <a
+                  href="#cta"
+                  className="px-6 sm:px-8 py-3 rounded-full bg-white text-slate-700 ring-1 ring-slate-200 font-semibold hover:bg-slate-50 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-300"
+                >
+                  Widgets
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* About Section */}
+        <section id="about" className="py-24 sm:py-28 bg-white">
+          <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-10">
+            <h2 className="text-3xl md:text-4xl font-bold text-center text-slate-900">
+              Why ClaritySync?
+            </h2>
+            <p className="mt-4 max-w-3xl mx-auto text-center text-lg text-slate-600">
+              Our mission is to eliminate the noise and friction in modern workflows. We provide simple, effective tools that help you and your team stay focused on what truly matters, fostering alignment and boosting productivity without the clutter.
+            </p>
+
+            <div className="mt-16 grid gap-6 sm:gap-8 md:grid-cols-3">
+              <div className="flex flex-col items-center text-center p-8 bg-white rounded-2xl border border-slate-200">
+                <FocusIcon className="h-12 w-12 text-blue-600 mb-4" />
+                <h3 className="text-xl font-semibold mb-2 text-slate-900">Stay Focused</h3>
+                <p className="text-slate-600">
+                  Minimize distractions with streamlined templates and a centralized notification system.
+                </p>
+              </div>
+              <div className="flex flex-col items-center text-center p-8 bg-white rounded-2xl border border-slate-200">
+                <AlignIcon className="h-12 w-12 text-blue-600 mb-4" />
+                <h3 className="text-xl font-semibold mb-2 text-slate-900">Stay Aligned</h3>
+                <p className="text-slate-600">
+                  Keep your team on the same page with shared resources and clear, concise updates.
+                </p>
+              </div>
+              <div className="flex flex-col items-center text-center p-8 bg-white rounded-2xl border border-slate-200">
+                <LightbulbIcon className="h-12 w-12 text-blue-600 mb-4" />
+                <h3 className="text-xl font-semibold mb-2 text-slate-900">Work Smarter</h3>
+                <p className="text-slate-600">
+                  Leverage powerful tools designed for efficiency, not complexity. Get more done with less effort.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Features Section */}
+        <section id="features" className="py-24 sm:py-28 bg-slate-50">
+          <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-10">
+            <h2 className="text-3xl md:text-4xl font-bold text-center text-slate-900">
+              Powerful Features, Simple Interface
+            </h2>
+
+            <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+              <div className="bg-white p-8 rounded-2xl border border-slate-200 hover:shadow-sm transition-shadow">
+                <h3 className="text-2xl font-semibold mb-3 text-slate-900">Project Templates</h3>
+                <p className="text-slate-600">
+                  Kickstart your projects with pre-built templates for planning, tracking, and reporting.
+                </p>
+              </div>
+              <div className="bg-white p-8 rounded-2xl border border-slate-200 hover:shadow-sm transition-shadow">
+                <h3 className="text-2xl font-semibold mb-3 text-slate-900">Notification Center</h3>
+                <p className="text-slate-600">
+                  A unified inbox for all your important updates, keeping you informed without the noise.
+                </p>
+              </div>
+              <div className="bg-white p-8 rounded-2xl border border-slate-200 hover:shadow-sm transition-shadow">
+                <h3 className="text-2xl font-semibold mb-3 text-slate-900">Focus Mode</h3>
+                <p className="text-slate-600">
+                  A distraction-free environment to help you concentrate on your most important tasks.
+                </p>
+              </div>
+              <div className="bg-white p-8 rounded-2xl border border-slate-200 hover:shadow-sm transition-shadow">
+                <h3 className="text-2xl font-semibold mb-3 text-slate-900">Team Alignment Tools</h3>
+                <p className="text-slate-600">
+                  Shared goals, progress tracking, and automated check-ins to keep everyone in sync.
+                </p>
+              </div>
+              <div className="bg-white p-8 rounded-2xl border border-slate-200 hover:shadow-sm transition-shadow">
+                <h3 className="text-2xl font-semibold mb-3 text-slate-900">Analytics</h3>
+                <p className="text-slate-600">
+                  Gain insights with lightweight dashboards that highlight what matters most.
+                </p>
+              </div>
+              <div className="bg-white p-8 rounded-2xl border border-slate-200 hover:shadow-sm transition-shadow">
+                <h3 className="text-2xl font-semibold mb-3 text-slate-900">Integrations</h3>
+                <p className="text-slate-600">
+                  Connect your favorite tools to keep your workflow seamless and centralized.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* CTA Section */}
+        <section id="cta" className="bg-gradient-to-r from-blue-600 to-indigo-600">
+          <div className="max-w-4xl mx-auto text-center py-16 sm:py-20 px-6 sm:px-8 lg:px-10">
+            <h2 className="text-3xl font-extrabold text-white sm:text-4xl">
+              <span className="block">Start building clarity into your workflow today.</span>
+            </h2>
+            <a
+              href="#"
+              className="mt-8 inline-flex items-center justify-center px-6 py-3 rounded-full text-blue-700 bg-white font-bold hover:bg-blue-50 transition-colors shadow-sm"
+            >
+              Get Started
+            </a>
+          </div>
+        </section>
       </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+
+      {/* Footer */}
+      <footer className="bg-white border-t border-slate-200 text-slate-500">
+        <div className="max-w-6xl mx-auto py-8 px-6 sm:px-8 lg:px-10 flex flex-col md:flex-row justify-between items-center">
+          <p className="mb-4 md:mb-0">
+            &copy; {new Date().getFullYear()} ClaritySync Project. All rights reserved.
+          </p>
+          <div className="flex gap-x-6">
+            <a href="#about" className="hover:text-slate-900 hover:underline underline-offset-4">
+              About
+            </a>
+            <a href="#features" className="hover:text-slate-900 hover:underline underline-offset-4">
+              Features
+            </a>
+            <a href="#" className="hover:text-slate-900 hover:underline underline-offset-4">
+              Contact
+            </a>
+          </div>
+        </div>
       </footer>
     </div>
   );
