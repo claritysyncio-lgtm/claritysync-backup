@@ -1,18 +1,34 @@
-# setup-backup-alias.ps1
-# Makes "backup" a permanent command that runs backup-all.ps1
+# backup-all.ps1
+# Pushes your current project to ALL repos at once (only if changes exist)
 
-# Ensure PowerShell profile exists
-if (!(Test-Path $PROFILE)) {
-    New-Item -Type File -Path $PROFILE -Force
-}
+# Define repo names
+$repos = @(
+    "csmain",
+    "csbackup1",
+    "csbackup2",
+    "csbackup3",
+    "csbackup4"
+)
 
-# Define alias line
-$aliasLine = "Set-Alias backup '$PWD\backup-all.ps1'"
+# Check if there are changes
+if (-not (git diff --quiet) -or -not (git diff --cached --quiet)) {
+    # Commit message with timestamp
+    $timestamp = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
+    $commitMessage = "🔄 Backup ALL versions at $timestamp"
 
-# Add alias to profile (only if not already there)
-if (-not (Select-String -Path $PROFILE -Pattern "Set-Alias backup")) {
-    Add-Content -Path $PROFILE -Value $aliasLine
-    Write-Host "Alias added to PowerShell profile. Restart PowerShell to use 'backup'."
+    # Stage all changes
+    git add .
+
+    # Commit
+    git commit -m "$commitMessage"
+
+    # Push to all repos
+    foreach ($repo in $repos) {
+        Write-Host "⬆️  Backing up ALL versions to $repo..."
+        git push $repo main
+    }
+
+    Write-Host "✅ Backup to ALL versions completed successfully!"
 } else {
-    Write-Host "Alias already exists in PowerShell profile."
+    Write-Host "ℹ️ No changes to commit. Skipping backup."
 }
