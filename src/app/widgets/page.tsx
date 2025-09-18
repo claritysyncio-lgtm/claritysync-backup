@@ -59,7 +59,7 @@ const WIDGETS = [
   { name: "Calendar", category: "Scheduling", description: "This week at a glance." },
 ];
 
-const FILTERS = ["All", "Notifications", "Productivity", "Info", "Wellness", "Notes", "Tasks", "Scheduling"] as const;
+const FILTERS = ["Most Popular", "All", "Notifications", "Productivity", "Info", "Wellness", "Notes", "Tasks", "Scheduling"] as const;
 
 type Filter = typeof FILTERS[number];
 
@@ -75,9 +75,12 @@ export default function WidgetsPage() {
     return () => clearTimeout(t);
   }, [toast]);
 
-  const filtered = selectedFilter === "All"
-    ? WIDGETS
-    : WIDGETS.filter(w => w.category === selectedFilter);
+  const filtered =
+    selectedFilter === "All"
+      ? WIDGETS
+      : selectedFilter === "Most Popular"
+      ? WIDGETS.filter((w: any) => w.isPopular)
+      : WIDGETS.filter(w => w.category === selectedFilter);
 
   return (
     <div className="min-h-screen bg-slate-50">
@@ -156,7 +159,7 @@ export default function WidgetsPage() {
           {filtered.map((w) => (
             <div key={w.name} className="group relative block p-6 bg-white rounded-2xl border border-slate-200 hover:border-slate-300 hover:shadow-sm transition-all">
               {/* Category badge: slightly higher than default, not overlapping */}
-              <div className="absolute top-4 right-6 rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-600 shadow-sm ring-1 ring-slate-200">
+              <div className="absolute top-8 right-8 rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-500">
                 {w.category}
               </div>
               {/* Popular badge (matches Templates positioning style near top-right) */}
