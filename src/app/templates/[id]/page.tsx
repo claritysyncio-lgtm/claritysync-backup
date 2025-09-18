@@ -253,15 +253,15 @@ function CategoryPreview({ category }: { category: CategoryKey }) {
   switch (category) {
     case "tasks":
       return (
-        <div className={`h-full w-full ${accent.brandBg} bg-gradient-to-br ${accent.gradientFrom} ${accent.gradientTo} p-5`}> 
-          <div className="grid grid-cols-3 gap-4 h-full">
+        <div className={`h-full w-full ${accent.brandBg} bg-gradient-to-br ${accent.gradientFrom} ${accent.gradientTo} p-8`}> 
+          <div className="grid grid-cols-3 gap-6 h-full">
             {["Backlog", "In Progress", "Done"].map((col) => (
-              <div key={col} className="rounded-lg bg-white/90 border border-slate-200 p-3 shadow-sm">
-                <div className={`text-xs font-semibold ${accent.brand}`}>{col}</div>
-                <div className="mt-2 space-y-2">
-                  <div className="h-8 rounded-md bg-slate-100" />
-                  <div className="h-8 rounded-md bg-slate-100" />
-                  <div className="h-8 rounded-md bg-slate-100" />
+              <div key={col} className="rounded-lg bg-white/90 border border-slate-200 p-5 shadow-sm">
+                <div className={`text-sm font-semibold ${accent.brand}`}>{col}</div>
+                <div className="mt-3 space-y-3">
+                  <div className="h-12 rounded-md bg-slate-100" />
+                  <div className="h-12 rounded-md bg-slate-100" />
+                  <div className="h-12 rounded-md bg-slate-100" />
                 </div>
               </div>
             ))}
@@ -270,124 +270,15 @@ function CategoryPreview({ category }: { category: CategoryKey }) {
       );
     case "habit":
       return (
-        <div className={`h-full w-full ${accent.brandBg} bg-gradient-to-br ${accent.gradientFrom} ${accent.gradientTo} p-6`}> 
-          <div className="grid grid-cols-7 gap-2">
+        <div className={`h-full w-full ${accent.brandBg} bg-gradient-to-br ${accent.gradientFrom} ${accent.gradientTo} p-8`}> 
+          <div className="grid grid-cols-7 gap-3">
             {Array.from({ length: 28 }).map((_, i) => (
               <div key={i} className="aspect-square rounded-md bg-white/80 border border-slate-200 flex items-center justify-center">
-                <div className="h-3 w-3 rounded-full bg-rose-300" />
+                <div className="h-5 w-5 rounded-full bg-rose-300" />
               </div>
             ))}
           </div>
-          <div className="mt-4 text-xs text-slate-500">Daily habit grid with streak markers</div>
-        </div>
-      );
-    case "finance":
-      return (
-        <div className={`h-full w-full ${accent.brandBg} bg-gradient-to-br ${accent.gradientFrom} ${accent.gradientTo} p-6`}> 
-          <div className="grid grid-cols-3 gap-4">
-            {["Income", "Expenses", "Savings"].map((k) => (
-              <div key={k} className="rounded-lg bg-white/90 border border-slate-200 p-4 shadow-sm">
-                <div className="text-xs text-slate-500">{k}</div>
-                <div className={`mt-1 text-xl font-bold ${accent.brand}`}>$1,2{k === "Expenses" ? 3 : 8}0</div>
-              </div>
-            ))}
-          </div>
-          <div className="mt-4 rounded-lg bg-white/90 border border-slate-200 p-4 shadow-sm">
-            <div className={`text-xs font-semibold ${accent.brand}`}>Monthly Trend</div>
-            <div className="mt-2 h-24 rounded-md bg-slate-100" />
-          </div>
-        </div>
-      );
-    case "content":
-      return (
-        <div className={`h-full w-full ${accent.brandBg} bg-gradient-to-br ${accent.gradientFrom} ${accent.gradientTo} p-5`}> 
-          <div className="grid grid-cols-7 gap-2">
-            {Array.from({ length: 21 }).map((_, i) => (
-              <div key={i} className="h-16 rounded-md bg-white/90 border border-slate-200 p-2">
-                <div className="h-2 w-10 rounded bg-fuchsia-200" />
-                <div className="mt-2 h-2 w-6 rounded bg-slate-200" />
-              </div>
-            ))}
-          </div>
-          <div className="mt-3 text-xs text-slate-500">Editorial calendar with scheduled posts</div>
-        </div>
-      );
-    case "business":
-      return (
-        <div className={`h-full w-full ${accent.brandBg} bg-gradient-to-br ${accent.gradientFrom} ${accent.gradientTo} p-6`}> 
-          <div className="grid grid-cols-2 gap-4">
-            <div className="rounded-lg bg-white/90 border border-slate-200 p-4 shadow-sm">
-              <div className={`text-xs font-semibold ${accent.brand}`}>OKRs</div>
-              <div className="mt-3 h-2 w-full rounded bg-slate-100" />
-              <div className="mt-2 h-2 w-5/6 rounded bg-slate-100" />
-            </div>
-            <div className="rounded-lg bg-white/90 border border-slate-200 p-4 shadow-sm">
-              <div className="text-xs text-slate-500">Hiring Pipeline</div>
-              <div className="mt-2 space-y-2">
-                <div className="h-6 rounded bg-slate-100" />
-                <div className="h-6 rounded bg-slate-100" />
-                <div className="h-6 rounded bg-slate-100" />
-              </div>
-            </div>
-          </div>
-        </div>
-      );
-    case "student":
-      return (
-        <div className={`h-full w-full ${accent.brandBg} bg-gradient-to-br ${accent.gradientFrom} ${accent.gradientTo} p-6`}> 
-          <div className="grid grid-cols-4 gap-3">
-            {Array.from({ length: 8 }).map((_, i) => (
-              <div key={i} className="rounded-lg bg-white/90 border border-slate-200 p-3">
-                <div className="h-2 w-16 rounded bg-sky-200" />
-                <div className="mt-2 h-2 w-10 rounded bg-slate-200" />
-              </div>
-            ))}
-          </div>
-          <div className="mt-3 text-xs text-slate-500">Classes, assignments, and exams</div>
-        </div>
-      );
-    case "life":
-      return (
-        <div className={`h-full w-full ${accent.brandBg} bg-gradient-to-br ${accent.gradientFrom} ${accent.gradientTo} p-6`}> 
-          <div className="grid grid-cols-3 gap-4">
-            <div className="rounded-lg bg-white/90 border border-slate-200 p-4 shadow-sm">
-              <div className={`text-xs text-slate-500`}>Routines</div>
-              <div className="mt-2 h-2 w-full rounded bg-slate-100" />
-              <div className="mt-2 h-2 w-5/6 rounded bg-slate-100" />
-            </div>
-            <div className="rounded-lg bg-white/90 border border-slate-200 p-4 shadow-sm">
-              <div className={`text-xs text-slate-500`}>Goals</div>
-              <div className="mt-2 h-16 rounded bg-slate-100" />
-            </div>
-            <div className="rounded-lg bg-white/90 border border-slate-200 p-4 shadow-sm">
-              <div className={`text-xs text-slate-500`}>Health</div>
-              <div className="mt-2 h-16 rounded bg-slate-100" />
-            </div>
-          </div>
-        </div>
-      );
-    case "secondBrain":
-      return (
-        <div className={`h-full w-full ${accent.brandBg} bg-gradient-to-br ${accent.gradientFrom} ${accent.gradientTo} p-6`}> 
-          <div className="rounded-lg bg-white/90 border border-slate-200 p-4 shadow-sm">
-            <div className={`text-xs font-semibold ${accent.brand}`}>Graph of Notes</div>
-            <div className="mt-3 grid grid-cols-6 gap-3">
-              {Array.from({ length: 18 }).map((_, i) => (
-                <div key={i} className="h-6 rounded-full bg-violet-200" />
-              ))}
-            </div>
-            <div className="mt-4 h-20 rounded-md bg-slate-100" />
-          </div>
-        </div>
-      );
-    case "journals":
-      return (
-        <div className={`h-full w-full ${accent.brandBg} bg-gradient-to-br ${accent.gradientFrom} ${accent.gradientTo} p-6`}> 
-          <div className="rounded-lg bg-white/90 border border-slate-200 p-4 shadow-sm">
-            <div className={`text-xs font-semibold ${accent.brand}`}>Daily Prompt</div>
-            <div className="mt-2 h-24 rounded-md bg-slate-50 border border-slate-200" />
-            <div className="mt-3 text-xs text-slate-500">Mood, gratitude, and reflection</div>
-          </div>
+          <div className="mt-6 text-sm text-slate-500">Daily habit grid with streak markers</div>
         </div>
       );
   }
@@ -407,7 +298,7 @@ export default async function TemplateDetailPage({ params }: { params: { id: str
     <div className="min-h-screen bg-slate-50">
       {/* Top bar */}
       <div className="border-b border-slate-200 bg-white/60 backdrop-blur">
-        <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-10 py-6 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-6 py-6 flex items-center justify-between">
           <div>
             <h1 className="text-2xl font-bold text-slate-900">{template!.title}</h1>
             <span className={`inline-flex items-center mt-1 rounded-full px-2.5 py-0.5 text-xs font-semibold ${accent.pill}`}>
@@ -429,13 +320,11 @@ export default async function TemplateDetailPage({ params }: { params: { id: str
       </div>
 
       {/* Content */}
-      <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-10 py-10 grid grid-cols-1 lg:grid-cols-3 gap-8">
-        {/* Preview mock */}
-        <div className="lg:col-span-2">
-          <div className={`aspect-[16/10] w-full overflow-hidden rounded-xl border ${accent.ring} ring-1 bg-white shadow-sm`}>
+        <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-6 py-10 grid grid-cols-1 lg:grid-cols-3 gap-6">
+          {/* Preview mock */}
+          <div className="lg:col-span-2">
             <CategoryPreview category={template!.category} />
           </div>
-        </div>
 
         {/* Details */}
         <aside className="lg:col-span-1">

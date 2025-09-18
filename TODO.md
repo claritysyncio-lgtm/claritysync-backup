@@ -1,2 +1,4 @@
-t- [x] Update the positioning of the "Popular" callout in src/app/templates/page.tsx to sit on the top-right corner with "absolute top-0 right-0 -translate-y-1/2"
-- [ ] Move "Student Dashboard" template to be first beside "All-in-One Life OS" in the TEMPLATES array
+# TOaDO: Adjust Templates Layout
+
+- [x] Edit src/app/templates/page.tsx: Change max-width to max-w-7xl, reduce horizontal padding to px-2 sm:px-4 lg:px-6, keep lg:grid-cols-3, reduce gap to gap-4, increase card padding to p-6, adjust margins (mr-16 to mr-8, mb-2 to mb-4, pt-1 to pt-2)
+- [x] Edit src/app/templates/[id]/page.tsx: Change max-width to max-w-7xl, reduce horizontal padding to px-2 sm:px-4 lg:px-6, reduce gap to gap-6, increase aside padding to p-5, increase payment padding to p-4
