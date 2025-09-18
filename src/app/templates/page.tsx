@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, type FC, type SVGProps } from "react";
+import { useState, useEffect, type FC, type SVGProps } from "react";
 import Link from "next/link";
 
 // --- Icon Components ---
@@ -120,6 +120,7 @@ const FILTERS = [
 
 export default function TemplatesPage() {
   const [selectedFilter, setSelectedFilter] = useState("Most Popular");
+  const [previewTemplate, setPreviewTemplate] = useState<typeof TEMPLATES[number] | null>(null);
 
   const categoryMap: Record<string, string> = {
     "Student / Academic Templates": "Student",
@@ -214,6 +215,76 @@ export default function TemplatesPage() {
 
       {/* Content */}
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10 py-10">
+        {/* Centered Preview Modal */}
+        {previewTemplate && (
+          <div
+            role="dialog"
+            aria-modal="true"
+            aria-label={`${previewTemplate.name} preview`}
+            className="fixed inset-0 z-[70] flex items-center justify-center p-4"
+          >
+            {/* Backdrop */}
+            <button
+              aria-label="Close preview"
+              onClick={() => setPreviewTemplate(null)}
+              className="absolute inset-0 bg-black/40 backdrop-blur-sm"
+            />
+
+            {/* Modal content */}
+            <div className="relative w-full max-w-3xl rounded-2xl bg-white shadow-xl ring-1 ring-slate-200 overflow-hidden">
+              {/* Header */}
+              <div className="flex items-center justify-between px-5 py-4 border-b border-slate-200">
+                <div className="flex items-center gap-3">
+                  <div className="p-2 bg-[#e9fbff] rounded-full">
+                    <previewTemplate.Icon className="h-6 w-6 text-[#1dcbf2]" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-semibold text-slate-900">{previewTemplate.name}</h3>
+                    <div className="text-xs font-medium text-slate-500">{previewTemplate.category}</div>
+                  </div>
+                </div>
+                <button
+                  onClick={() => setPreviewTemplate(null)}
+                  className="inline-flex items-center justify-center rounded-full p-2 text-slate-600 hover:bg-slate-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgba(29,203,242,0.7)]"
+                  aria-label="Close"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" className="h-5 w-5">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </button>
+              </div>
+
+              {/* Body: simple preview block */}
+              <div className="p-5">
+                <p className="text-slate-600 mb-4">{previewTemplate.description}</p>
+                <div className="rounded-xl border border-slate-200 bg-slate-50 p-4">
+                  <div className="text-xs font-semibold text-slate-500 mb-2">Preview</div>
+                  <div className="h-56 rounded-lg bg-white border border-slate-200 flex items-center justify-center text-slate-400">
+                    Coming soon: rich preview for “{previewTemplate.name}”.
+                  </div>
+                </div>
+              </div>
+
+              {/* Footer actions */}
+              <div className="px-5 py-4 border-t border-slate-200 flex justify-end gap-2">
+                <button
+                  onClick={() => setPreviewTemplate(null)}
+                  className="px-3 py-2 rounded-full text-sm font-semibold text-slate-600 hover:bg-slate-100"
+                >
+                  Close
+                </button>
+                <Link
+                  href={`/templates/${slugify(previewTemplate.name)}`}
+                  className="px-4 py-2 rounded-full text-sm font-semibold text-white bg-[#1dcbf2] shadow-sm shadow-[rgba(29,203,242,0.2)] hover:bg-[hsl(191,89%,46%)]"
+                  aria-label={`Open full page for ${previewTemplate.name}`}
+                  onClick={() => setPreviewTemplate(null)}
+                >
+                  Open Full Page
+                </Link>
+              </div>
+            </div>
+          </div>
+        )}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {getFilteredTemplates().map((template) => (
             <div
@@ -242,12 +313,21 @@ export default function TemplatesPage() {
               </div>
               <p className="text-slate-600 mb-4">{template.description}</p>
               <div className="flex justify-between items-center mt-auto pt-2">
-                <div className="text-sm font-semibold text-[#1dcbf2]">
+                <button
+                  type="button"
+                  onClick={() => setPreviewTemplate(template)}
+                  className="text-sm font-semibold text-[#1dcbf2] hover:text-[#18b5d7] focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgba(29,203,242,0.7)] rounded"
+                  aria-label={`Preview ${template.name} template`}
+                >
                   Preview
-                </div>
-                <div className="rounded-full bg-[#1dcbf2] px-3 py-1.5 text-sm font-semibold text-white shadow-sm shadow-[rgba(29,203,242,0.2)] transition-colors group-hover:bg-[hsl(191,89%,46%)]">
+                </button>
+                <Link
+                  href={`/templates/${slugify(template.name)}`}
+                  className="rounded-full bg-[#1dcbf2] px-3 py-1.5 text-sm font-semibold text-white shadow-sm shadow-[rgba(29,203,242,0.2)] transition-colors group-hover:bg-[hsl(191,89%,46%)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgba(29,203,242,0.7)]"
+                  aria-label={`Use the ${template.name} template`}
+                >
                   Use Template
-                </div>
+                </Link>
               </div>
             </div>
           ))}
