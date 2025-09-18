@@ -1,4 +1,5 @@
 import type { FC, SVGProps } from "react";
+import Link from "next/link";
 
 // --- Icon Components ---
 
@@ -28,6 +29,13 @@ const SecondBrainIcon: FC<SVGProps<SVGSVGElement>> = (props) => (
     <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" />
   </svg>
 );
+
+const slugify = (s: string) =>
+  s
+    .toLowerCase()
+    .replace(/[^a-z0-9\s-]/g, "")
+    .trim()
+    .replace(/\s+/g, "-");
 
 const TEMPLATES = [
   {
@@ -140,7 +148,9 @@ export default function TemplatesPage() {
                 </div>
                 <div className="mr-24">
                   <h3 className="text-xl font-semibold text-slate-900">
-                    {template.name}
+                    <Link href={`/templates/${slugify(template.name)}`} className="hover:text-[#18b5d7]">
+                      {template.name}
+                    </Link>
                   </h3>
                 </div>
               </div>
