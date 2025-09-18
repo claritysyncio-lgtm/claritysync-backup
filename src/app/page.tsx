@@ -1,5 +1,6 @@
+import Link from 'next/link';
 import type { FC, SVGProps } from "react";
- 
+
 // --- Icon Components ---
 const FocusIcon: FC<SVGProps<SVGSVGElement>> = (props) => (
   <svg
@@ -99,18 +100,18 @@ export default function Home() {
               </p>
 
               <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
-                <a
+                <Link
                   href="/templates"
                   className="px-6 sm:px-8 py-3 rounded-full bg-[#1dcbf2] text-white font-semibold shadow-sm shadow-[rgba(29,203,242,0.2)] hover:bg-[hsl(191,89%,46%)] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgba(29,203,242,0.6)]"
                 >
                   Explore Templates
-                </a>
-                <a
+                </Link>
+                <Link
                   href="#cta"
                   className="px-6 sm:px-8 py-3 rounded-full bg-white text-slate-700 ring-1 ring-slate-200 font-semibold hover:bg-slate-50 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-300"
                 >
                   Widgets
-                </a>
+                </Link>
               </div>
             </div>
           </div>
@@ -222,12 +223,12 @@ export default function Home() {
             <h2 className="text-3xl font-extrabold text-white sm:text-4xl">
               <span className="block">Start building clarity into your workflow today.</span>
             </h2>
-            <a
+            <Link
               href="/templates"
               className="mt-8 inline-flex items-center justify-center px-6 py-3 rounded-full text-[rgba(29,203,242,1)] bg-white font-bold hover:bg-[color-mix(in_oklab,rgba(29,203,242,0.08),white)] transition-colors shadow-sm"
             >
               Get Started
-            </a>
+            </Link>
           </div>
         </section>
       </main>
@@ -239,18 +240,18 @@ export default function Home() {
             &copy; {new Date().getFullYear()} ClaritySync. All rights reserved.
           </p>
           <div className="flex gap-x-6">
-            <a href="#about" className="hover:text-slate-900 hover:underline underline-offset-4">
+            <Link href="#about" className="hover:text-slate-900 hover:underline underline-offset-4">
               About
-            </a>
-            <a href="#features" className="hover:text-slate-900 hover:underline underline-offset-4">
+            </Link>
+            <Link href="#features" className="hover:text-slate-900 hover:underline underline-offset-4">
               Features
-            </a>
-            <a href="/privacy" className="hover:text-slate-900 hover:underline underline-offset-4">
+            </Link>
+            <Link href="/privacy" className="hover:text-slate-900 hover:underline underline-offset-4">
               Privacy
-            </a>
-            <a href="/terms" className="hover:text-slate-900 hover:underline underline-offset-4">
+            </Link>
+            <Link href="/terms" className="hover:text-slate-900 hover:underline underline-offset-4">
               Terms
-            </a>
+            </Link>
             <a href="mailto:Claritysync.io@gmail.com" className="hover:text-slate-900 hover:underline underline-offset-4">
               Contact
             </a>

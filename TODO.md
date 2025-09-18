@@ -1,0 +1,2 @@
+t- [x] Update the positioning of the "Popular" callout in src/app/templates/page.tsx to sit on the top-right corner with "absolute top-0 right-0 -translate-y-1/2"
+- [ ] Move "Student Dashboard" template to be first beside "All-in-One Life OS" in the TEMPLATES array

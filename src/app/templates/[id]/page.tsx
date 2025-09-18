@@ -393,8 +393,9 @@ function CategoryPreview({ category }: { category: CategoryKey }) {
   }
 }
 
-export default function TemplateDetailPage({ params }: { params: { id: string } }) {
-  const template = getTemplateById(params.id);
+export default async function TemplateDetailPage({ params }: { params: { id: string } }) {
+  const awaitedParams = await params;
+  const template = getTemplateById(awaitedParams.id);
 
   if (!template) {
     notFound();

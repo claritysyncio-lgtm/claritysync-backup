@@ -39,21 +39,23 @@ const slugify = (s: string) =>
 
 const TEMPLATES = [
   {
+    name: "Student Dashboard",
+    description: "Keep track of your classes, assignments, and notes in one organized space.",
+    category: "Student",
+    Icon: GenericIcon,
+    isPopular: true,
+  },
+  {
     name: "All-in-One Life OS",
     description: "A comprehensive system to manage your personal life, from daily tasks to long-term goals.",
     category: "Life",
     Icon: GenericIcon,
+    isPopular: true,
   },
   {
     name: "Business Hub",
     description: "Centralize your business operations, from project management to client relations.",
     category: "Business",
-    Icon: GenericIcon,
-  },
-  {
-    name: "Student Dashboard",
-    description: "Keep track of your classes, assignments, and notes in one organized space.",
-    category: "Student",
     Icon: GenericIcon,
   },
   {
@@ -134,11 +136,15 @@ export default function TemplatesPage() {
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10 py-10">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {TEMPLATES.map((template) => (
-            <a
+            <div
               key={template.name}
-              href="#"
-              className="group relative block p-8 bg-white rounded-2xl border border-slate-200 hover:border-slate-300 hover:shadow-sm transition-all"
+            className="group relative block p-8 bg-white rounded-2xl border border-slate-200 hover:border-slate-300 hover:shadow-sm transition-all"
             >
+              {template.isPopular && (
+                <div className="absolute top-0 right-0 -translate-y-1/2 bg-[#1dcbf2] text-white text-xs font-bold px-3 py-1 rounded-full shadow-md z-10">
+                  Popular
+                </div>
+              )}
               <div className="absolute top-8 right-8 rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-500">
                 {template.category}
               </div>
@@ -155,15 +161,15 @@ export default function TemplatesPage() {
                 </div>
               </div>
               <p className="text-slate-600 mb-4">{template.description}</p>
-              <div className="flex justify-between items-center mt-auto pt-4 border-t border-slate-100">
+              <div className="flex justify-between items-center mt-auto pt-2">
                 <div className="text-sm font-semibold text-[#1dcbf2]">
                   Preview
                 </div>
-                <div className="rounded-full bg-[#1dcbf2] px-4 py-2 text-sm font-semibold text-white shadow-sm shadow-[rgba(29,203,242,0.2)] transition-colors group-hover:bg-[hsl(191,89%,46%)]">
+                <div className="rounded-full bg-[#1dcbf2] px-3 py-1.5 text-sm font-semibold text-white shadow-sm shadow-[rgba(29,203,242,0.2)] transition-colors group-hover:bg-[hsl(191,89%,46%)]">
                   Use Template
                 </div>
               </div>
-            </a>
+            </div>
           ))}
         </div>
       </div>
