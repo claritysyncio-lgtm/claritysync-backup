@@ -1,6 +1,12 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
+interface PageProps {
+  params: {
+    id: string;
+  };
+}
+
 // Keep keys aligned with src/app/templates/page.tsx
 export type CategoryKey =
   | "student"
@@ -393,9 +399,9 @@ function CategoryPreview({ category }: { category: CategoryKey }) {
   }
 }
 
-export default async function TemplateDetailPage({ params }: { params: { id: string } }) {
-  const awaitedParams = await params;
-  const template = getTemplateById(awaitedParams.id);
+export default async function TemplatePage({ params }: PageProps) {
+  const { id } = await params;
+  const template = getTemplateById(id);
 
   if (!template) {
     notFound();
