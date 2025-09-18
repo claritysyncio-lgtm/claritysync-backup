@@ -7,6 +7,7 @@ import { useState } from "react";
 const NAV = [
   { label: "Home", href: "/" },
   { label: "Templates", href: "/templates" },
+  { label: "Widgets", href: "/widgets" },
   { label: "About", href: "/#about" },
   { label: "Features", href: "/#features" },
 ];
@@ -45,8 +46,7 @@ export default function SiteHeader() {
           {/* Desktop Nav */}
           <nav className="hidden md:flex items-center">
             {NAV.map((item, idx) => {
-              const isActive =
-                item.href === "/" ? pathname === "/" : pathname.startsWith(item.href.replace("/#", "/"));
+              const isActive = item.href === "/" ? pathname === item.href : pathname.startsWith(item.href);
               return (
                 <span key={item.href} className="inline-flex items-center">
                   <Link
