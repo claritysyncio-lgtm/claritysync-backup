@@ -87,8 +87,8 @@ export default function WidgetsPage() {
     selectedFilter === "All"
       ? WIDGETS
       : selectedFilter === "Most Popular"
-      ? WIDGETS.filter((w: any) => w.isPopular)
-      : WIDGETS.filter(w => w.category === selectedFilter);
+      ? WIDGETS.filter((w) => w.isPopular)
+      : WIDGETS.filter((w) => w.category === selectedFilter);
 
   return (
     <div className="min-h-screen bg-slate-50">

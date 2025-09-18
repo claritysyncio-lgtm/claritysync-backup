@@ -7,7 +7,7 @@ export default function Terms() {
       <section className="mb-8">
         <h2 className="text-2xl font-semibold mb-4">Introduction</h2>
         <p className="mb-4">
-          Welcome to ClaritySync. These Terms and Conditions ("Terms") govern your use of our website and services. By accessing or using ClaritySync, you agree to be bound by these Terms.
+          Welcome to ClaritySync. These Terms and Conditions (&ldquo;Terms&rdquo;) govern your use of our website and services. By accessing or using ClaritySync, you agree to be bound by these Terms.
         </p>
       </section>
 
@@ -35,7 +35,7 @@ export default function Terms() {
       <section className="mb-8">
         <h2 className="text-2xl font-semibold mb-4">Limitation of Liability</h2>
         <p className="mb-4">
-          ClaritySync is provided "as is" without warranties of any kind. We shall not be liable for any indirect, incidental, special, or consequential damages arising from your use of our services.
+          ClaritySync is provided &quot;as is&quot; without warranties of any kind. We shall not be liable for any indirect, incidental, special, or consequential damages arising from your use of our services.
         </p>
       </section>
 

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, type FC, type SVGProps } from "react";
+import { useState, type FC, type SVGProps } from "react";
 import Link from "next/link";
 
 // --- Icon Components ---
