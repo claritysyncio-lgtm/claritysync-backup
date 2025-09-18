@@ -269,9 +269,9 @@ export default function TemplatesPage() {
                 {template.category}
               </div>
               <div className="flex items-center gap-4 mb-4">
-                <div className="p-3 bg-[#e9fbff] rounded-full">
+                <Link href={`/templates/${slugify(template.name)}`} className="p-3 bg-[#e9fbff] rounded-full hover:opacity-90" aria-label={`Open full page for ${template.name}`}>
                   <template.Icon className="h-8 w-8 text-[#1dcbf2]" />
-                </div>
+                </Link>
                 <div className="mr-24">
                   <h3 className="text-xl font-semibold text-slate-900">
                     <Link href={`/templates/${slugify(template.name)}`} className="hover:text-[#18b5d7]">

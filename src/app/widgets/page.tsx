@@ -63,6 +63,14 @@ const FILTERS = ["Most Popular", "All", "Notifications", "Productivity", "Info",
 
 type Filter = typeof FILTERS[number];
 
+// Simple slugify for building widget detail URLs
+const slugify = (s: string) =>
+  s
+    .toLowerCase()
+    .replace(/[^a-z0-9\s-]/g, "")
+    .trim()
+    .replace(/\s+/g, "-");
+
 export default function WidgetsPage() {
   const [selectedFilter, setSelectedFilter] = useState<Filter>("All");
   const [preview, setPreview] = useState<(typeof WIDGETS)[number] | null>(null);
@@ -147,7 +155,7 @@ export default function WidgetsPage() {
             </div>
             <div className="px-5 py-4 border-t border-slate-200 flex justify-end gap-2">
               <button onClick={() => setPreview(null)} className="px-3 py-2 rounded-full text-sm font-semibold text-slate-600 hover:bg-slate-100">Close</button>
-              <Link href="#" className="px-4 py-2 rounded-full text-sm font-semibold text-white bg-[#1dcbf2] shadow-sm shadow-[rgba(29,203,242,0.2)] hover:bg-[hsl(191,89%,46%)]">Use Widget</Link>
+              <button type="button" onClick={() => setPreview(null)} className="px-4 py-2 rounded-full text-sm font-semibold text-white bg-[#1dcbf2] shadow-sm shadow-[rgba(29,203,242,0.2)] hover:bg-[hsl(191,89%,46%)]">Use Widget (Mock)</button>
             </div>
           </div>
         </div>
@@ -172,7 +180,15 @@ export default function WidgetsPage() {
                 <div className="p-3 bg-[#e9fbff] rounded-full">
                   <WidgetIcon className="h-7 w-7 text-[#1dcbf2]" />
                 </div>
-                <h3 className="text-lg font-semibold text-slate-900">{w.name}</h3>
+                <h3 className="text-lg font-semibold text-slate-900">
+                  <Link
+                    href={`/widgets/${slugify(w.name)}`}
+                    className="hover:text-[#18b5d7] focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgba(29,203,242,0.7)] rounded"
+                    aria-label={`Open full page for ${w.name}`}
+                  >
+                    {w.name}
+                  </Link>
+                </h3>
               </div>
               <p className="text-slate-600 mb-4">{w.description}</p>
               <div className="flex justify-between items-center pt-2">
@@ -183,13 +199,13 @@ export default function WidgetsPage() {
                 >
                   Preview
                 </button>
-                <button
-                  type="button"
-                  onClick={() => setToast(`${w.name} added to your page`)}
+                <Link
+                  href={`/widgets/${slugify(w.name)}`}
                   className="rounded-full bg-[#1dcbf2] px-3 py-1.5 text-sm font-semibold text-white shadow-sm shadow-[rgba(29,203,242,0.2)] transition-colors group-hover:bg-[hsl(191,89%,46%)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgba(29,203,242,0.7)]"
+                  aria-label={`Use ${w.name} widget`}
                 >
                   Use Widget
-                </button>
+                </Link>
               </div>
             </div>
           ))}
