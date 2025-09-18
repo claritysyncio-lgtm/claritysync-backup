@@ -148,38 +148,7 @@ export default function TemplatesPage() {
           <div className="text-center">
             <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight text-slate-900 flex items-center justify-center gap-2">
               <span>Templates</span>
-              <span className="inline-flex items-center gap-1 ml-2">
-                <button
-                  type="button"
-                  title="Filter templates"
-                  aria-label="Filter templates"
-                  className="p-1.5 rounded-full ring-1 ring-slate-200 text-slate-600 hover:bg-slate-100"
-                >
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="h-5 w-5">
-                    <path d="M3 4h18l-7 8v6l-4 2v-8L3 4z" />
-                  </svg>
-                </button>
-                <button
-                  type="button"
-                  title="Sort options"
-                  aria-label="Sort options"
-                  className="p-1.5 rounded-full ring-1 ring-slate-200 text-slate-600 hover:bg-slate-100"
-                >
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="h-5 w-5">
-                    <path d="M6 7h12v2H6V7zm3 4h9v2H9v-2zm4 4h5v2h-5v-2z" />
-                  </svg>
-                </button>
-                <button
-                  type="button"
-                  title="Settings"
-                  aria-label="Settings"
-                  className="p-1.5 rounded-full ring-1 ring-slate-200 text-slate-600 hover:bg-slate-100"
-                >
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="h-5 w-5">
-                    <path d="M19.14 12.94c.04-.31.06-.63.06-.94s-.02-.63-.06-.94l2.03-1.58a.5.5 0 00.12-.64l-1.92-3.32a.5.5 0 00-.6-.22l-2.39.96a7.027 7.027 0 00-1.63-.94l-.36-2.54a.5.5 0 00-.5-.42h-3.84a.5.5 0 00-.5.42l-.36 2.54c-.58.22-1.12.52-1.63.94l-2.39-.96a.5.5 0 00-.6.22L2.71 8.84a.5.5 0 00.12.64l2.03 1.58c-.04.31-.06.63-.06.94s.02.63.06.94l-2.03 1.58a.5.5 0 00-.12.64l1.92 3.32c.14.24.44.34.7.22l2.39-.96c.51.42 1.05.72 1.63.94l.36 2.54c.06.24.26.42.5.42h3.84c.24 0 .44-.18.5-.42l.36-2.54c.58-.22 1.12-.52 1.63-.94l2.39.96c.26.12.56.02.7-.22l1.92-3.32a.5.5 0 00-.12-.64l-2.03-1.58zM12 15.5A3.5 3.5 0 1112 8a3.5 3.5 0 010 7.5z" />
-                  </svg>
-                </button>
-              </span>
+
             </h1>
             <p className="mt-4 text-base text-slate-400">
               Kickstart your journey with our pre-built templates.
