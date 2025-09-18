@@ -1,4 +1,6 @@
-import type { FC, SVGProps } from "react";
+"use client";
+
+import { useState, type FC, type SVGProps } from "react";
 import Link from "next/link";
 
 // --- Icon Components ---
@@ -93,6 +95,27 @@ const FILTERS = [
 ];
 
 export default function TemplatesPage() {
+  const [selectedFilter, setSelectedFilter] = useState("Most Popular");
+
+  const categoryMap: Record<string, string> = {
+    "Student / Academic Templates": "Student",
+    "All-in-One Life / Personal Productivity Planners": "Life",
+    "Business / Business Operations Hubs": "Business",
+    "Content Planning / Creator Tools": "Content",
+    "Finance / Budget & Expense Trackers": "Finance",
+    "Habit Tracking": "Habit",
+    "Task & Project Management": "Tasks",
+    "“Second Brain” / Knowledge Management": "Knowledge",
+    "Journals / Mental Wellness / Self-Care": "Journals",
+  };
+
+  const getFilteredTemplates = () => {
+    if (selectedFilter === "All") return TEMPLATES;
+    if (selectedFilter === "Most Popular") return TEMPLATES.filter(t => t.isPopular);
+    const category = categoryMap[selectedFilter];
+    if (category) return TEMPLATES.filter(t => t.category === category);
+    return TEMPLATES;
+  };
   return (
     <div className="min-h-screen bg-slate-50">
       <div className="border-b border-slate-200 bg-white/60 backdrop-blur">
@@ -117,11 +140,12 @@ export default function TemplatesPage() {
           <SearchIcon className="absolute top-1/2 right-4 -translate-y-1/2 h-5 w-5 text-slate-400" />
         </div>
         <div className="flex flex-wrap justify-center gap-2">
-          {FILTERS.map((filter, index) => (
+          {FILTERS.map((filter) => (
             <button
               key={filter}
+              onClick={() => setSelectedFilter(filter)}
               className={`px-4 py-2 text-base font-semibold rounded-full ring-1 ring-inset transition-colors ${
-                index === 0
+                filter === selectedFilter
                   ? "bg-[#00CFFF] text-white ring-transparent"
                   : "text-slate-600 ring-slate-200 hover:bg-slate-100"
               }`}
@@ -135,7 +159,7 @@ export default function TemplatesPage() {
       {/* Content */}
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10 py-10">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {TEMPLATES.map((template) => (
+          {getFilteredTemplates().map((template) => (
             <div
               key={template.name}
             className="group relative block p-8 bg-white rounded-2xl border border-slate-200 hover:border-slate-300 hover:shadow-sm transition-all"
