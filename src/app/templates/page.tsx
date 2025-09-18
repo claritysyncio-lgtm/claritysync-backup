@@ -70,9 +70,9 @@ const BusinessIcon: FC<SVGProps<SVGSVGElement>> = (props) => (
   </svg>
 );
 
-const FinanceIcon: FC<SVGProps<SVGSVGElement>> = (props) => (
+const DollarIcon: FC<SVGProps<SVGSVGElement>> = (props) => (
   <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" {...props}>
-    <path d="M12 1L3 5v6c0 5 3 9 9 9s9-4 9-9V5l-9-4zM7 11h10v2H7v-2z" />
+    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z" />
   </svg>
 );
 
@@ -136,7 +136,7 @@ const TEMPLATES = [
     name: "Budget & Expenses",
     description: "Monthly budgets, categories and expense tracking.",
     category: "Finance",
-    Icon: FinanceIcon,
+    Icon: DollarIcon,
     isPopular: false,
   },
   {

@@ -59,6 +59,11 @@ export default function Home() {
       <main className="flex flex-col">
         {/* Hero Section */}
         <section className="relative isolate flex items-center justify-center min-h-[calc(100svh-4rem)] py-24 sm:py-28 overflow-hidden bg-gradient-to-b from-[#e9fbff] via-white to-white">
+          {/* Blurred vignette effect */}
+          <div className="absolute inset-0 -z-20" aria-hidden="true">
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_40%,rgba(29,203,242,0.3)_100%)] opacity-70 blur-3xl" />
+          </div>
+
           <div className="absolute -z-10 inset-0 pointer-events-none [mask-image:radial-gradient(60%_60%_at_50%_30%,_black,_transparent)]">
             <div className="absolute inset-x-0 top-0 h-64 bg-gradient-to-b from-[rgba(29,203,242,0.2)] to-transparent" />
           </div>

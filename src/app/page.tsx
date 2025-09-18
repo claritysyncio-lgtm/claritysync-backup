@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import type { FC, SVGProps } from "react";
-import CircuitBackground from './components/CircuitBackground';
-
+  
 // --- Icon Components ---
 const FocusIcon: FC<SVGProps<SVGSVGElement>> = (props) => (
   <svg
@@ -57,11 +56,10 @@ const LightbulbIcon: FC<SVGProps<SVGSVGElement>> = (props) => (
 // --- Main Page Component ---
 export default function Home() {
   return (
-    <div className="font-sans text-slate-800">
+    <div className="bg-gradient-to-b from-white to-sky-200 font-sans text-slate-800">
       <main className="flex flex-col">
         {/* Hero Section */}
-        <section className="relative isolate flex items-center justify-center min-h-[calc(100svh-4rem)] py-24 sm:py-28 overflow-hidden bg-gradient-to-b from-[#e9fbff] via-white to-white">
-          <CircuitBackground />
+        <section className="relative isolate flex min-h-screen items-center justify-center overflow-hidden py-24 sm:py-28">
           <div className="absolute -z-10 inset-0 pointer-events-none [mask-image:radial-gradient(60%_60%_at_50%_30%,_black,_transparent)]">
             <div className="absolute inset-x-0 top-0 h-64 bg-gradient-to-b from-[rgba(29,203,242,0.2)] to-transparent" />
           </div>
@@ -242,10 +240,10 @@ export default function Home() {
             &copy; {new Date().getFullYear()} ClaritySync. All rights reserved.
           </p>
           <div className="flex gap-x-6">
-            <Link href="#about" className="hover:text-slate-900 hover:underline underline-offset-4">
+            <Link href="/#about" className="hover:text-slate-900 hover:underline underline-offset-4">
               About
             </Link>
-            <Link href="#features" className="hover:text-slate-900 hover:underline underline-offset-4">
+            <Link href="/#features" className="hover:text-slate-900 hover:underline underline-offset-4">
               Features
             </Link>
             <Link href="/privacy" className="hover:text-slate-900 hover:underline underline-offset-4">
