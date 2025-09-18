@@ -28,10 +28,16 @@ export default function SiteHeader() {
               fill="none"
               stroke="currentColor"
               strokeWidth="1.75"
+              strokeLinecap="round"
+              strokeLinejoin="round"
               className="h-7 w-7 text-[#1dcbf2]"
               aria-hidden
             >
+              {/* Hexagon outline */}
               <path d="M7 3.75l-4 6.5v3.5l4 6.5h10l4-6.5v-3.5l-4-6.5H7z" />
+              {/* Eye inside */}
+              <ellipse cx="12" cy="12" rx="5" ry="3.2" />
+              <circle cx="12" cy="12" r="1.4" fill="currentColor" stroke="none" />
             </svg>
             <span>ClaritySync</span>
           </Link>

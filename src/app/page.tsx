@@ -75,7 +75,7 @@ export default function Home() {
                     strokeWidth="1.25"
                     strokeLinecap="round"
                     strokeLinejoin="round"
-                    className="h-28 w-28 text-[#1dcbf2]"
+                    className="h-28 w-28 text-[#1dcbf2] animate-spin-once"
                     aria-hidden
                   >
                     {/* Hexagon outline */}
@@ -122,10 +122,12 @@ export default function Home() {
               fill="none"
               stroke="currentColor"
               strokeWidth="1.25"
-              className="h-6 w-6 animate-bounce"
+              className="h-10 w-10 animate-bounce"
               aria-hidden
             >
+              <path strokeLinecap="round" strokeLinejoin="round" d="M6 3l6 6 6-6" />
               <path strokeLinecap="round" strokeLinejoin="round" d="M6 9l6 6 6-6" />
+              <path strokeLinecap="round" strokeLinejoin="round" d="M6 15l6 6 6-6" />
             </svg>
           </div>
         </section>
