@@ -1,4 +1,4 @@
-import Link from "next/link";
+aimport Link from "next/link";
 import { notFound } from "next/navigation";
 
 interface PageProps {

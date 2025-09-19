@@ -3,11 +3,59 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 
-// Simple icon
-function WidgetIcon(props: React.SVGProps<SVGSVGElement>) {
+// Category-specific icons for widgets
+function BellIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" {...props}>
-      <path d="M4 4h7v7H4V4zm9 0h7v7h-7V4zM4 13h7v7H4v-7zm9 0h7v7h-7v-7z" />
+      <path d="M12 22a2 2 0 002-2H10a2 2 0 002 2zm6-6v-5a6 6 0 10-12 0v5l-2 2v1h16v-1l-2-2z" />
+    </svg>
+  );
+}
+
+function TimerIcon(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" {...props}>
+      <path d="M10 2h4v2h-4V2zm2 4a8 8 0 110 16 8 8 0 010-16zm1 4h-2v5h5v-2h-3V10z" />
+    </svg>
+  );
+}
+
+function CloudSunIcon(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" {...props}>
+      <path d="M6 19a4 4 0 010-8c.2 0 .4.01.6.04A5 5 0 1117 10a4.5 4.5 0 11.5 9H6z" />
+    </svg>
+  );
+}
+
+function QuoteBubbleIcon(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" {...props}>
+      <path d="M21 6H3a2 2 0 00-2 2v9l4-3h16a2 2 0 002-2V8a2 2 0 00-2-2zM7 10h4v2H7v-2zm6 0h4v2h-4v-2z" />
+    </svg>
+  );
+}
+
+function NoteIcon(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" {...props}>
+      <path d="M4 3h14a2 2 0 012 2v14l-6-2H4a2 2 0 01-2-2V5a2 2 0 012-2zm3 4h8v2H7V7zm0 4h6v2H7v-2z" />
+    </svg>
+  );
+}
+
+function ChecklistIcon(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" {...props}>
+      <path d="M9 7l-2 2-1-1-2 2 3 3 4-4-2-2zM13 6h8v2h-8V6zm0 4h8v2h-8v-2zm0 4h8v2h-8v-2z" />
+    </svg>
+  );
+}
+
+function CalendarIcon(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" {...props}>
+      <path d="M7 2h2v2h6V2h2v2h3a2 2 0 012 2v14a2 2 0 01-2 2H4a2 2 0 01-2-2V6a2 2 0 012-2h3V2zm13 8H4v10h16V10z" />
     </svg>
   );
 }
@@ -50,13 +98,13 @@ function NotificationCenterPreview({
 }
 
 const WIDGETS = [
-  { name: "Notification Center", category: "Notifications", description: "Centralized feed of alerts, mentions, and updates.", isPopular: true },
-  { name: "Timer", category: "Productivity", description: "Countdown and pomodoro timers.", isPopular: true },
-  { name: "Weather", category: "Info", description: "Current weather snapshot." },
-  { name: "Quote of the Day", category: "Wellness", description: "Daily inspirational quotes." },
-  { name: "Quick Notes", category: "Notes", description: "Scratchpad for thoughts." },
-  { name: "Task Widget", category: "Tasks", description: "Mini task list with priorities." },
-  { name: "Calendar", category: "Scheduling", description: "This week at a glance." },
+  { name: "Notification Center", category: "Notifications", description: "Centralized feed of alerts, mentions, and updates.", isPopular: true, Icon: BellIcon },
+  { name: "Timer", category: "Productivity", description: "Countdown and pomodoro timers.", isPopular: true, Icon: TimerIcon },
+  { name: "Weather", category: "Info", description: "Current weather snapshot.", Icon: CloudSunIcon },
+  { name: "Quote of the Day", category: "Wellness", description: "Daily inspirational quotes.", Icon: QuoteBubbleIcon },
+  { name: "Quick Notes", category: "Notes", description: "Scratchpad for thoughts.", Icon: NoteIcon },
+  { name: "Task Widget", category: "Tasks", description: "Mini task list with priorities.", Icon: ChecklistIcon },
+  { name: "Calendar", category: "Scheduling", description: "This week at a glance.", Icon: CalendarIcon },
 ];
 
 const FILTERS = ["Most Popular", "All", "Notifications", "Productivity", "Info", "Wellness", "Notes", "Tasks", "Scheduling"] as const;
@@ -126,7 +174,7 @@ export default function WidgetsPage() {
             <div className="flex items-center justify-between px-5 py-4 border-b border-slate-200">
               <div className="flex items-center gap-3">
                 <div className="p-2 bg-[#e9fbff] rounded-full">
-                  <WidgetIcon className="h-6 w-6 text-[#1dcbf2]" />
+                  {(() => { const IconComp = preview?.Icon ?? BellIcon; return <IconComp className="h-6 w-6 text-[#1dcbf2]" />; })()}
                 </div>
                 <div>
                   <h3 className="text-lg font-semibold text-slate-900">{preview.name}</h3>
@@ -167,7 +215,7 @@ export default function WidgetsPage() {
           {filtered.map((w) => (
             <div key={w.name} className="group relative block p-6 bg-white rounded-2xl border border-slate-200 hover:border-slate-300 hover:shadow-sm transition-all">
               {/* Category badge: slightly higher than default, not overlapping */}
-              <div className="absolute top-8 right-8 rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-500">
+              <div className="absolute top-4 right-8 rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-500">
                 {w.category}
               </div>
               {/* Popular badge (matches Templates positioning style near top-right) */}
@@ -178,7 +226,7 @@ export default function WidgetsPage() {
               )}
               <div className="flex items-center gap-4 mb-3">
                 <div className="p-3 bg-[#e9fbff] rounded-full">
-                  <WidgetIcon className="h-7 w-7 text-[#1dcbf2]" />
+                  {w.Icon ? <w.Icon className="h-7 w-7 text-[#1dcbf2]" /> : null}
                 </div>
                 <h3 className="text-lg font-semibold text-slate-900">
                   <Link

@@ -60,12 +60,13 @@ export default function Home() {
     <div className="font-sans text-slate-800">
       <main className="flex flex-col">
         {/* Hero Section */}
-        <section className="relative isolate flex items-center justify-center min-h-[calc(100svh-4rem)] py-24 sm:py-28 overflow-hidden bg-gradient-to-b from-[#e9fbff] via-white to-white">
+        <section className="relative isolate flex items-center justify-center min-h-[calc(100svh-4rem)] py-24 sm:py-28 overflow-hidden bg-white">
           {/* Hologram circuit background */}
           <div className="absolute inset-0 -z-10 pointer-events-none [mask-image:radial-gradient(60%_60%_at_50%_30%,_black,_transparent)]">
             <CircutHomePage className="absolute inset-0 opacity-20" />
-            <div className="absolute inset-x-0 top-0 h-64 bg-gradient-to-b from-[rgba(29,203,242,0.2)] to-transparent" />
           </div>
+          <div className="absolute inset-x-0 top-0 h-64 bg-gradient-to-b from-[rgba(29,203,242,0.2)] to-transparent -z-10" />
+
 
           <div className="px-6 sm:px-8 lg:px-10 w-full">
             <div className="max-w-3xl mx-auto text-center">
@@ -97,7 +98,6 @@ export default function Home() {
                 </p>
               </div>
 
-
               <p className="mt-4 text-lg md:text-xl leading-relaxed text-slate-600">
                 Tools and templates to bring focus, alignment, and productivity.
               </p>
@@ -125,21 +125,38 @@ export default function Home() {
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
-              strokeWidth="1.25"
-              className="h-10 w-10 animate-bounce"
+              strokeWidth="1.5"
+              className="h-10 w-14 animate-bounce"
               aria-hidden
             >
-              <path strokeLinecap="round" strokeLinejoin="round" d="M6 3l6 6 6-6" />
-              <path strokeLinecap="round" strokeLinejoin="round" d="M6 9l6 6 6-6" />
-              <path strokeLinecap="round" strokeLinejoin="round" d="M6 15l6 6 6-6" />
+              <path strokeLinecap="round" strokeLinejoin="round" d="M4 8l8 8 8-8" />
             </svg>
+          </div>
+          {/* Seamless narrow gradient */}
+          {/* Removed bottom gradient as per user feedback */}
+        </section>
+
+        {/* Widgets Section */}
+        <section id="widgets" className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-10 py-12">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
+            {["Notifications", "Productivity", "Weather", "Wellness", "Notes", "Tasks", "Scheduling"].map((category) => (
+              <div key={category} className="relative bg-white rounded-lg shadow p-4 flex flex-col items-center">
+                      <span className="absolute top-0 left-2 bg-blue-500 text-white text-xs font-semibold px-3 py-1 rounded-full">
+                        {category}
+                      </span>
+                {/* Widget content placeholder */}
+                <div className="mt-8 text-center text-sm text-slate-700">
+                  {category} widget content
+                </div>
+              </div>
+            ))}
           </div>
         </section>
 
         {/* About Section */}
-        <section id="about" className="py-24 sm:py-28 bg-white">
+        <section id="about" className="py-24 sm:py-28 bg-gradient-to-b from-white via-white/90 to-slate-50">
           <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-10">
-            <h2 className="text-3xl md:text-4xl font-bold text-center text-slate-900">
+            <h2 className="text-3xl md:text-4xl font-normal text-center text-slate-900 -mt-12">
               Why ClaritySync?
             </h2>
             <p className="mt-4 max-w-3xl mx-auto text-center text-lg text-slate-600">
