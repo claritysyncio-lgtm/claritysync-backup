@@ -1,15 +1,9 @@
 // src/app/templates/[id]/page.tsx
 
-interface PageProps {
-  params: {
-    id: string;
-  };
-}
-
-export default function TemplatePage({ params }: PageProps) {
+export default function TemplatePage({ params }: { params: { id: string } }) {
   return (
     <div>
-      <h1>Template ID: {params.id}</h1>
+      {params.id}
     </div>
   );
 }
