@@ -38,7 +38,13 @@ function WidgetPreview({ name }: { name: string }) {
   );
 }
 
-export default async function WidgetDetailPage({ params }: { params: { slug: string } }) {
+interface PageProps {
+  params: Promise<{
+    slug: string;
+  }>;
+}
+
+export default async function WidgetDetailPage({ params }: PageProps) {
   const awaited = await params;
   const widget = findWidgetBySlug(awaited.slug);
 

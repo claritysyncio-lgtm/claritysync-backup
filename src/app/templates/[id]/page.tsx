@@ -1,5 +1,10 @@
-// src/app/templates/[id]/page.tsx
+interface PageProps {
+  params: Promise<{
+    id: string;
+  }>;
+}
 
-export default function TemplatePage({ params }: { params: { id: string } }) {
-  return <div>{params.id}</div>;
+export default async function TemplatePage({ params }: PageProps) {
+  const { id } = await params;
+  return <div>{id}</div>;
 }
