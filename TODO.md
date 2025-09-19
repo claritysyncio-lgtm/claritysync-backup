@@ -9,3 +9,4 @@
 ## Notes
 - PageProps interface is already correctly defined
 - Function needs to be synchronous as params is an object, not a Promise
+- Build succeeded after fixing typing in both dynamic routes
