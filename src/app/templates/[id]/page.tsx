@@ -399,8 +399,8 @@ function CategoryPreview({ category }: { category: CategoryKey }) {
   }
 }
 
-export default async function TemplatePage({ params }: PageProps) {
-  const { id } = await params;
+export default function TemplatePage({ params }: PageProps) {
+  const { id } = params;
   const template = getTemplateById(id);
 
   if (!template) {
