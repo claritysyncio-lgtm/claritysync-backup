@@ -1,6 +1,11 @@
-- [ ] Add useState import and selectedFilter state
-- [ ] Add onClick handlers to filter buttons
-- [ ] Create filter logic for templates
-- [ ] Update button styles for selected filter
-- [ ] Render filtered templates
-- [ ] Test the interactive filter functionality
+# TODO: Fix Dynamic Route Typing in Next.js
+
+## Steps to Complete
+- [x] Edit src/app/templates/[id]/page.tsx to remove async and await from params
+- [x] Verify no Promise or async typing remains
+- [x] Commit changes with message "Fix dynamic route typing"
+- [x] Push to GitHub for Vercel redeploy
+
+## Notes
+- PageProps interface is already correctly defined
+- Function needs to be synchronous as params is an object, not a Promise
