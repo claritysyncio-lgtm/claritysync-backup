@@ -1,11 +1,25 @@
 // src/app/templates/[id]/page.tsx
+import { Metadata } from "next";
 
-// Define exactly what Next.js expects
 interface TemplatePageProps {
-  params: { id: string }
+  params: {
+    id: string;
+  };
 }
 
-// No PageProps, no Promises, just plain sync props
-export default function TemplatePage({ params }: TemplatePageProps) {
-  return <div>{params.id}</div>
+export async function generateMetadata(
+  { params }: TemplatePageProps
+): Promise<Metadata> {
+  return {
+    title: `Template ${params.id}`,
+  };
+}
+
+export default async function TemplatePage({ params }: TemplatePageProps) {
+  return (
+    <main>
+      <h1>Template {params.id}</h1>
+      <p>This is the template page for ID: {params.id}</p>
+    </main>
+  );
 }
